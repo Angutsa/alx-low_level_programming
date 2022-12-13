@@ -1,4 +1,4 @@
-#include <std.io.h>
+#include <stdio.h>
 
 /**
   * main - Prints a sentence to the standard output
