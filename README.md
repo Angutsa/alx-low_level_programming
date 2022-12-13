@@ -1,1 +1,1 @@
-# alx-low_level_programming
+This repo is for my initial learning path in coding from C.
