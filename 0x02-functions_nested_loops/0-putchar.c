@@ -1,6 +1,5 @@
 #include <unistd.h>
-
-int _putchar(char c);
+#include <main.h>
 
 /**
   * main - writes the word _putchar on stdout
