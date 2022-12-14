@@ -1,16 +1,3 @@
-#include "main.h"
-
-/**
-  * main - writes the alphabet using a function
-  *
-  * Return: Always 0
-  */
-int main(void)
-{
-	print_alphabet();
-	return (0);
-}
-
 /**
   * print_alphabet - write lowercase alphabet
   *
