@@ -1,0 +1,30 @@
+************************************************************************
+* Program prints all possible different combos of two digits.          *
+* Limitations:                                                         *
+*	Numbers separated by , followed by a space                     * 
+*	Two digits must be different                                   *
+*	10 and 01 are considered the same combo                        *
+*	Only print the smallest combo                                  *
+*	Print in ascending order                                       *
+************************************************************************
+
+START
+Let n1 be 0
+Let n2 be 0
+
+WHILE n1 < 10
+	WHILE n2 < 10
+		IF n1 is equal to n2 OR n1 > n2
+			n2 + 1
+			CONTINUE loop
+
+		print n1
+		print n2
+		print ,
+		print space
+
+n1 + 1
+
+print newline
+
+END
