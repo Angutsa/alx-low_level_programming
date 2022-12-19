@@ -23,7 +23,7 @@ void rev_string(char *s)
 		*(s + i) = *(s + (strlen - i - 1));
 		*(s + strlen - i - 1) = a;
 
-		if (i == (strlen / 2))
+		if (i > (strlen / 2))
 			break;
 	}
 
