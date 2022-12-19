@@ -1,15 +1,14 @@
 #include "main.h"
 
 /**
-  * print_rev - prints a string in reverse order
-  * @s: pointer to the string to be printed
+  * rev_string- prints a string in reverse order
+  * @s: pointer to the string to be reversed
   */
 void rev_string(char *s)
 {
 	int strlen = 0;
-	char rev[] = *s;
 	int i;
-	char *rev = s;
+	char a;
 
 	for (;;)
 	{
@@ -18,9 +17,15 @@ void rev_string(char *s)
 		strlen++;
 	}
 
-	for (strlen -= 1, i = 0; strlen >= 0; strlen--, i++)
+	for (i = 0; i < strlen; i++)
 	{
-		*(s + i) = *(rev + strlen);
+		a = *(s + i);
+		*(s + i) = *(s + (strlen - i - 1));
+		*(s + strlen - i - 1) = a;
+
+		if (i == (strlen / 2))
+			break;
 	}
+
 }
 
