@@ -26,7 +26,7 @@ void rev_string(char *s)
 		a = *(s + i);
 		*(s + i) = *(s + (strlen - i));
 		*(s + strlen - i) = a;
-		
+
 		half = strlen / 2;
 
 		if (strlen % 2 == 0)
