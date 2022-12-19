@@ -8,7 +8,6 @@ void rev_string(char *s)
 {
 	int strlen = 0;
 	int i;
-	int half;
 	char a;
 
 	for (;;)
@@ -27,12 +26,7 @@ void rev_string(char *s)
 		*(s + i) = *(s + (strlen - i));
 		*(s + strlen - i) = a;
 
-		half = strlen / 2;
-
-		if (strlen % 2 == 0)
-			half++;
-
-		if (i == half)
+		if (i == (strlen / 2))
 			break;
 
 	}
