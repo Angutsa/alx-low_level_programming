@@ -20,7 +20,7 @@ void puts_half(char *str)
 	if ((ltr % 2) != 0)
 		ltr -= 1;
 
-	half = ltr / 2;
+	half = (ltr / 2) + 1;
 
 	for (;;)
 	{
