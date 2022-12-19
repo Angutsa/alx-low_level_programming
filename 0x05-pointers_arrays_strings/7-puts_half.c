@@ -24,7 +24,7 @@ void puts_half(char *str)
 	}
 	else
 	{
-		half = ltr / 2
+		half = ltr / 2;
 	}
 
 	for (;;)
