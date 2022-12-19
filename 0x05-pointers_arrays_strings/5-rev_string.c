@@ -8,23 +8,33 @@ void rev_string(char *s)
 {
 	int strlen = 0;
 	int i;
+	int half;
 	char a;
 
 	for (;;)
 	{
 		if (*(s + strlen) == '\0')
+		{
+			strlen--;
 			break;
+		}
 		strlen++;
 	}
 
-	for (i = 0; i < strlen; i++)
+	for (i = 0; i <= strlen; i++)
 	{
 		a = *(s + i);
-		*(s + i) = *(s + (strlen - i - 1));
-		*(s + strlen - i - 1) = a;
+		*(s + i) = *(s + (strlen - i));
+		*(s + strlen - i) = a;
+		
+		half = strlen / 2;
 
-		if (i > (strlen / 2))
+		if (strlen % 2 == 0)
+			half++;
+
+		if (i == half)
 			break;
+
 	}
 
 }
