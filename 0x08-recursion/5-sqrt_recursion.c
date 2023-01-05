@@ -26,7 +26,7 @@ int _sqrt(int low, int high, int x)
 {
 	int y = (low + high) / 2;
 
-	if ((high - low) == 1)
+	if (low > high)
 		return (-1);
 
 	if ((y * y) == x)
@@ -34,10 +34,10 @@ int _sqrt(int low, int high, int x)
 
 	if ((y * y) > x)
 	{
-		return (_sqrt(low, y, x));
+		return (_sqrt(low, y - 1, x));
 	}
 	else
 	{
-		return (_sqrt(y, high, x));
+		return (_sqrt(y + 1, high, x));
 	}
 }
