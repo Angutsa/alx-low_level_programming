@@ -1,3 +1,3 @@
 #!/bin/bash
-find . -name "*.c" | xargs gcc -c
-find . -name "*.o" | xargs ar rc liball.a
+gcc -c *.c
+ar -rc liball.a *.o
