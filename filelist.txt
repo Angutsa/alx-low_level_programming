@@ -1,0 +1,15 @@
+*isdigit.c
+*strlen.c
+*puts.c
+*strcpy.c
+*atoi.c
+*strcat.c
+*strncat.c
+*strncpy.c
+*strcmp.c
+*memset.c
+*memcpy.c
+*strchr.c
+*strspn.c
+*strpbrk.c
+*strstr.c
