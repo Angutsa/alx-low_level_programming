@@ -36,15 +36,29 @@ char *str_concat(char *s1, char *s2)
 	if (str == NULL)
 		return (NULL);
 
-	for (i = 0, j = 0; i < ltrs && *(s1 + j) != '\0'; i++, j++)
-	{
-		*(str + i) = *(s1 + j);
+	if (s1 != NULL)
+	{		
+		for (i = 0, j = 0; i < ltrs; i++, j++)
+		{
+			if (*(s1 + i) == '\0')
+				break;
+			
+			*(str + i) = *(s1 + j);
+		}
 	}
 
+	if (s2 == NULL)
+	{
+		*(str + ltrs) = '\0';
+		return (str);
+	}
+	
 	for (j = 0; i < ltrs; i++, j++)
 	{
 		*(str + i) = *(s2 + j);
 	}
+
+	*(str + ltrs) = '\0';
 
 	return (str);
 }
