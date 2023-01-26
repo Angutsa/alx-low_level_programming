@@ -4,20 +4,25 @@
 #include "variadic_functions.h"
 
 /**
-  * print_numbers - prints numbers followed by a new line
+  * print_strings - prints strings followed by a new line
   * @separator: string separating the numbers
-  * @n: number of integers passed to the function
+  * @n: number of strings passed to the function
   */
-void print_numbers(const char *separator, const unsigned int n, ...)
+void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list ptr;
 	int i;
+	char *s;
 
 	va_start(ptr, n);
 
 	for (i = 0; i < (int) n; i++)
 	{
-		printf("%d", va_arg(ptr, int));
+		s = va_arg(ptr, char *);
+		if ( s == NULL)
+			printf("(nil)");
+		else
+			printf("%s", s);
 
 		if (separator != NULL && i != (int) (n - 1))
 			printf("%s", separator);
