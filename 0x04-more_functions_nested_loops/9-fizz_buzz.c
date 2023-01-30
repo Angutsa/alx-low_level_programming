@@ -23,7 +23,8 @@ int main(void)
 		if ((b % 3) != 0 && (b % 5) != 0)
 			printf("%i", b);
 
-		printf(" ");
+		if (b < 100)
+			printf(" ");
 	}
 
 	printf("\n");
