@@ -2,7 +2,11 @@
 
 #define LISTS_H
 
+/* Headers */
+
 #include <stddef.h>
+
+/* Structures */
 
 /**
  * struct list_s - singly linked list
@@ -20,8 +24,10 @@ typedef struct list_s
 } list_t;
 
 
+/* Prototypes */
 
 int _putchar(char c);
 size_t print_list(const list_t *h);
+size_t list_len(const list_t *h);
 
 #endif
