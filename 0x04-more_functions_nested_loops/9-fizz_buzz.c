@@ -6,6 +6,7 @@
  * Description: Prints the numbers 1-100. Program prints Fizz for
  * multiples of 3, Buzz for multiples of 5 and FizzBuzz for multiples
  * of both 3 and 5.
+ * Return: returns 0 on success
  */
 int main(void)
 {
