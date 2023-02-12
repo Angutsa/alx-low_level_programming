@@ -76,6 +76,6 @@ int copy_text(int fd_s, int fd_d, char *argv[])
 			dprintf(2, "Error: Can't write to %s\n", argv[2]),
 					exit(99);
 		}
-	} while (rd == 1024);
+	} while (rd != 0);
 	return (0);
 }
