@@ -7,7 +7,7 @@ int add_elements(dlistint_t *h);
 
 /**
   * sum_dlistint - returns the suum of elements in a dlistint_t list
-  * @h: pointer to any node in the list
+  * @head: pointer to any node in the list
   * Return: the sum of elements
   */
 int sum_dlistint(dlistint_t *head)
