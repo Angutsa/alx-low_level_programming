@@ -11,7 +11,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	const unsigned char *value_dup = (const unsigned char *) value;
+	const unsigned char *value_dup = value;
 	unsigned long int index, size = ht->size;
 	hash_node_t *element = NULL;
 	hash_node_t *array = *(ht->array);
@@ -21,7 +21,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	/* Generate index */
-	index = key_index(key, size);
+	index = key_index((const unsigned char *) key, size);
 
 	/* Create node */
 	element = malloc(sizeof(hash_node_t));
