@@ -1,6 +1,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "hash_tables.h"
 
 /**
@@ -16,12 +17,24 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *element = NULL;
 	hash_node_t **array = ht->array;
 
+	/* Check input */
+	if (ht == NULL || key == NULL || value == NULL)
+		return (0);
+
 	/* Ensure key is not empty */
-	if (key == NULL)
+	if (strlen(key) == 0)
 		return (0);
 
 	/* Generate index */
 	index = key_index((const unsigned char *) key, size);
+
+	/* Check if key needs updating */
+	if (strcmp(array[index]->key, key) == 0)
+	{
+		free(array[index]->value);
+		array[index]->value = (char *)value_dup;
+		return (1);
+	}
 
 	/* Create node */
 	element = malloc(sizeof(hash_node_t));
