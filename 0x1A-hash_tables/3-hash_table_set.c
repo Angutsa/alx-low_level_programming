@@ -11,10 +11,10 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	const unsigned char *value_dup = value;
+	const unsigned char *value_dup = (const unsigned char *) value;
 	unsigned long int index, size = ht->size;
 	hash_node_t *element = NULL;
-	hash_node_t *array = *(ht->array);
+	hash_node_t **array = ht->array;
 
 	/* Ensure key is not empty */
 	if (key == NULL)
@@ -28,15 +28,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (element == NULL)
 		return (0);
 
-	element->key = key;
-	element->value = value_dup;
+	element->key = (char *) key;
+	element->value = (char *) value_dup;
 	element->next = NULL;
 
 	/* Check for collision */
 	if (array[index] == NULL)
 	{
 		/* Add node directly */
-		array[index] = *element;
+		array[index] = element;
 	}
 	else
 	{
