@@ -28,32 +28,35 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* Generate index */
 	index = key_index((const unsigned char *) key, size);
 
-	/* Check if key needs updating */
-	if (strcmp(array[index]->key, key) == 0)
-	{
-		free(array[index]->value);
-		array[index]->value = (char *)value_dup;
-		return (1);
-	}
-
-	/* Create node */
-	element = malloc(sizeof(hash_node_t));
-	if (element == NULL)
-		return (0);
-
-	element->key = (char *) key;
-	element->value = (char *) value_dup;
-	element->next = NULL;
-
-	/* Check for collision */
+	/* if index empty, add node */
 	if (array[index] == NULL)
 	{
-		/* Add node directly */
-		array[index] = element;
+		/* Create node */
+		element = malloc(sizeof(hash_node_t));
+		if (element == NULL)
+			return (0);
+
+		element->key = (char *) key;
+		element->value = (char *) value_dup;
+		element->next = NULL;
 	}
 	else
 	{
-		/* Add node at beginning */
+		/* Check if key needs updating */
+		if (strcmp(array[index]->key, (char *) key) == 0)
+		{
+			free(array[index]->value);
+	 		array[index]->value = (char *)value_dup;
+			return (1);
+		}
+
+		/* Otherwise add node to the very beginning */
+		element = malloc(sizeof(hash_node_t));
+		if (element == NULL)
+			return (0);
+
+		element->key = (char *) key;
+		element->value = (char *) value_dup;
 		element->next = array[index];
 		array[index] = element;
 	}
