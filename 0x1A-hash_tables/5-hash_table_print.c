@@ -29,7 +29,7 @@ void hash_table_print(const hash_table_t *ht)
 	}
 
 	if (not_empty == 1)
-		printf("\b");
+		printf("\b\b");
 
 	printf("}\n");
 }
@@ -44,6 +44,6 @@ void print_linked_list(hash_node_t *node)
 	if (node == NULL)
 		return;
 
-	printf("'%s' : '%s',", node->key, node->value);
+	printf("'%s': '%s', ", node->key, node->value);
 	print_linked_list(node->next);
 }
