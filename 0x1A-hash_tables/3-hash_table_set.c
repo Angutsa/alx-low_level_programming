@@ -15,7 +15,6 @@ int update_nodes(hash_node_t *node, char *key, char *value);
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	char *value_dup, *key_dup;
 	unsigned long int index;
 	hash_node_t *element;
 	hash_node_t **array;
@@ -26,26 +25,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (strlen(key) == 0)
 		return (0);
 
-	/* Setup variables */
 	array = ht->array;
-	value_dup = strdup(value);
-	if (value_dup == NULL)
-		return (0);
-
-	key_dup = strdup(key);
-	if (key_dup == NULL)
-		return (0);
 
 	/* Get index and update node, if not, add node to beginning */
 	index = key_index((const unsigned char *) key, ht->size);
-	if (update_nodes(array[index], key_dup, value_dup)  == 0)
+	if (update_nodes(array[index], (char *) key, (char *) value)  == 0)
 	{
 		element = malloc(sizeof(hash_node_t));
 		if (element == NULL)
 			return (0);
 
-		element->key = key_dup;
-		element->value = value_dup;
+		element->key = strdup(key);
+		element->value = strdup(value);
 		element->next = array[index];
 		array[index] = element;
 	}
@@ -71,7 +62,7 @@ int update_nodes(hash_node_t *node, char *key, char *value)
 	if (strcmp(node->key, key) == 0)
 	{
 		free(node->value);
-		node->value = value;
+		node->value = strdup(value);
 		updated = 1;
 	}
 
