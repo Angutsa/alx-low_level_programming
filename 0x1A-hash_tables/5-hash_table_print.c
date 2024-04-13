@@ -11,11 +11,13 @@ void print_linked_list(hash_node_t *node);
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	int i, size = (int) ht->size, comma = 0;
+	int i, size, comma = 0;
 
 	/* Check inputs */
 	if (ht == NULL)
 		return;
+
+	size = (int) ht->size
 
 	/* Print all key-value pairs */
 	printf("{");
