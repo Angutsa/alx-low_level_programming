@@ -11,7 +11,7 @@ void print_linked_list(hash_node_t *node);
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	int i, not_empty = 0;
+	int i;
 
 	/* Check inputs */
 	if (ht == NULL)
@@ -24,12 +24,8 @@ void hash_table_print(const hash_table_t *ht)
 		if (ht->array[i] == NULL)
 			continue;
 
-		not_empty = 1;
 		print_linked_list(ht->array[i]);
 	}
-
-	if (not_empty == 1)
-		printf("\b\b");
 
 	printf("}\n");
 }
@@ -44,6 +40,8 @@ void print_linked_list(hash_node_t *node)
 	if (node == NULL)
 		return;
 
-	printf("'%s': '%s', ", node->key, node->value);
+	printf("'%s': '%s'", node->key, node->value);
+	if (node->next != NULL)
+		printf(", ");
 	print_linked_list(node->next);
 }
