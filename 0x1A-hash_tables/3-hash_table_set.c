@@ -18,7 +18,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	char *value_dup, *key_dup;
 	unsigned long int index;
 	hash_node_t *element;
-	hash_node_t **array = ht->array;
+	hash_node_t **array;
 
 	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
@@ -26,6 +26,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (strlen(key) == 0)
 		return (0);
 
+	/* Setup variables */
+	array = ht->array;
 	value_dup = strdup(value);
 	if (value_dup == NULL)
 		return (0);
@@ -34,9 +36,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (key_dup == NULL)
 		return (0);
 
+	/* Get index and update node, if not, add node to beginning */
 	index = key_index((const unsigned char *) key, ht->size);
-
-	/* update relavent nodes. if not, add node at the beginning */
 	if (update_nodes(array[index], key_dup, value_dup)  == 0)
 	{
 		element = malloc(sizeof(hash_node_t));
@@ -58,7 +59,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  * @key: key
  * @value: value to be associated with the key
  * @node: node to check
- * @updated: indicates if any linked node was updated
  * Return: 1 if any node has been updated, 0 if not
  */
 int update_nodes(hash_node_t *node, char *key, char *value)
