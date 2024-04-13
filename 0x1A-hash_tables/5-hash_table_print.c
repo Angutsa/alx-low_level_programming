@@ -1,4 +1,4 @@
-#include <stdio.h>
+i#include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include "hash_tables.h"
@@ -17,7 +17,7 @@ void hash_table_print(const hash_table_t *ht)
 	if (ht == NULL)
 		return;
 
-	size = (int) ht->size
+	size = (int) ht->size;
 
 	/* Print all key-value pairs */
 	printf("{");
