@@ -14,7 +14,7 @@ char *check_for_key(hash_node_t *node, char *key);
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	char * value;
+	char *value;
 	unsigned long int index;
 
 	/* Check inputs */
